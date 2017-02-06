@@ -1,0 +1,53 @@
+h1, h2 {
+  color: brown;
+}
+.chicknumber {
+  text-align: center;
+  width: 30px;
+}
+.chicks {
+  float:left;
+  clear:left;
+}
+
+.section-header {
+  text-align: center;
+}
+
+.chick-form {
+  margin: 20px;
+  padding: 20px;
+  background-color: #f6f6f6;
+}
+
+.row {
+  width: 1500px;
+  margin: 0;
+}
+
+/*.form-item label, .form-item input, .form-item p{
+  display: inline-block;
+  padding: 5px;
+  margin: 5px;
+}*/
+
+.chick-total p{
+  display: inline-block;
+}
+
+footer {
+  background-color: #000000;
+  clear: left;
+}
+
+#footer-content {
+  color: #ffffff;
+}
+
+#address {
+  display: inline-block;
+}
+
+#hours {
+  display: inline-block;
+}
