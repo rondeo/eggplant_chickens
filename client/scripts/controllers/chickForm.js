@@ -13,6 +13,8 @@ mainApp.controller('ChickFormController', ['$scope', '$http', function($scope, $
   $scope.chickdate = ['10/15/2016', '10/31/2016'];
   $scope.hideform = false;
 
+  var query = "datadatadata";
+
 //function to sum the chicken inventory to a single variable for use on form
   $scope.chickenSum = function() {
     return $scope.americauna + $scope.bufforpington + $scope.barredrock +
@@ -26,13 +28,17 @@ mainApp.controller('ChickFormController', ['$scope', '$http', function($scope, $
     $scope.hideform = true;
   }
 
-//If confirmation window answer "Yes"
+//If confirmation window answer "Yes" --> db connection
   $scope.chickenConfirm = function(){
     $scope.thankyou = true;
-    console.log($scope.chickdate);
+    $http({
+      method: "POST",
+      url: "/chickform",
+      params: {"query" : query}
+    })
   }
 
-//If confirmation window answer "No"
+//If confirmation window answer "No" --> return to chickform for edit
  $scope.chickenWarn = function(){
   $scope.hideform = false;
 }
