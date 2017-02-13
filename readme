@@ -1,1 +1,9 @@
 To Do List:
+
+- change phone number input from integer to varchar, otherwise phone numbers input will be too large
+- style hover over chicken type for easier reading
+- submit button needs to appear below all other form data
+- general styling of chick form
+- show orders on admin page
+- allow orders to be updated and deleted on admin page
+- dates need to be created and disabled on admin page

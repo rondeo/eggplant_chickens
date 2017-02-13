@@ -10,10 +10,12 @@ mainApp.controller('ChickFormController', ['$scope', '$http', function($scope, $
   $scope.rhodeislandred = 0;
   $scope.goldstar = 0;
 
+  $scope.querydata = {};
+
   $scope.chickdate = ['10/15/2016', '10/31/2016'];
   $scope.hideform = false;
 
-  var query = "datadatadata";
+
 
 //function to sum the chicken inventory to a single variable for use on form
   $scope.chickenSum = function() {
@@ -31,16 +33,36 @@ mainApp.controller('ChickFormController', ['$scope', '$http', function($scope, $
 //If confirmation window answer "Yes" --> db connection
   $scope.chickenConfirm = function(){
     $scope.thankyou = true;
+    $scope.loadQueryData();
     $http({
-      method: "POST",
-      url: "/chickform",
-      params: {"query" : query}
+      method: 'POST',
+      url: '/chickform',
+      data: $scope.querydata
     })
   }
 
 //If confirmation window answer "No" --> return to chickform for edit
  $scope.chickenWarn = function(){
   $scope.hideform = false;
+}
+
+///UPDATE QUERY DATA
+$scope.loadQueryData = function(){
+  $scope.querydata = {
+    firstname : $scope.firstname,
+    lastname: $scope.lastname,
+    phonenumber: $scope.phonenumber,
+    email: $scope.email,
+    chickorderdate: $scope.chickorderdate,
+    americauna: $scope.americauna,
+    bufforpington: $scope.bufforpington,
+    barredrock: $scope.barredrock,
+    australorp: $scope.australorp,
+    silverwyandotte: $scope.silverwyandotte,
+    californiawhite: $scope.californiawhite,
+    rhodeislandred: $scope.rhodeislandred,
+    goldstar: $scope.goldstar
+  };
 }
 
 
