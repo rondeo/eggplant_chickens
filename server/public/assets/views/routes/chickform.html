@@ -34,11 +34,11 @@
 
       <div class="form-group">
         <label>Date for Chick Delivery</label>
-          <select ng-model="chickorderdate">
-            <!-- <option value=""> --- Please Select ---</option> -->
-            <option ng-repeat="date in chickdate" value="{{date}}">{{date}}</option>
-          </select>
-          <p class="alert alert-danger" ng-if="chickdate == ''">
+        <select ng-model="dates"
+                ng-options="date as date.date for date in dates">
+              <option value="">Select Date</option>
+        </select>
+          <p class="alert alert-danger" ng-if="chickdate == '' || chickdate == 'Select Date'">
             Required
           </p>
       </div>

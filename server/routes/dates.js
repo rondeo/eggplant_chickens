@@ -25,4 +25,23 @@ router.get('/', function(req,res){
     });
 });
 
+//POSTING A NEW DATE
+router.post('/', function(req, res){
+  console.log ("The request body coming in: ", req.body);
+  pg.connect(connectionString, function(err, client){
+    client.query("INSERT INTO dates (date, active) VALUES ($1, $2)", [req.body.date, true],
+    function(err, response){
+      if (err){
+        console.log("Error in post: ", err);
+      } else {
+        console.log("This is the response", response);
+        client.end();
+        res.send(response);
+      }
+    });
+  });
+});
+
+
+
 module.exports = router;

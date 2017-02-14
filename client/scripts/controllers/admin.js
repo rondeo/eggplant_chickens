@@ -1,14 +1,13 @@
 mainApp.controller('AdminController', ['$scope', '$http', function($scope, $http){
-  console.log("AdminController firing!");
 
   $scope.dates;
+  $scope.createDateData;
 
 
 
   // **********
   // GET ORDER DATES
   // **********
-
   $scope.getDates = function(){
     $http({
       method: 'GET',
@@ -17,18 +16,25 @@ mainApp.controller('AdminController', ['$scope', '$http', function($scope, $http
       function(response){
         $scope.dates = response.data;
         console.log("Dates scope: ", $scope.dates);
-        $scope.transformDate();
       }
     );
   }
 
-  // **********
-  // TRANSFORM DATE DATA
-  // **********
-  $scope.transformDate = function(){
-
+  // *********
+  // CREATE ORDER DATE
+  // *********
+  $scope.createOrderDate = function(){
+    console.log("The data being sent up: ", $scope.createDateData);
+    $http({
+      method: 'POST',
+      url: '/dates',
+      data: {date: $scope.createDateData}
+    }).then(
+      function(response){
+        console.log("The response: ", response);
+      }
+    )
   }
-
 
   // ***********
   // GET ORDERS FOR DATE
@@ -66,17 +72,7 @@ mainApp.controller('AdminController', ['$scope', '$http', function($scope, $http
     })
   }
 
-  // *********
-  // CREATE ORDER DATE
-  // *********
 
-  $scope.createOrderDate = function(){
-    $http({
-      method: 'POST',
-      url: '/orders',
-      data: $scope.createOrderData
-    })
-  }
 
   // *********
   // DELETE ORDER DATE

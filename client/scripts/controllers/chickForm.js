@@ -65,5 +65,23 @@ $scope.loadQueryData = function(){
   };
 }
 
+// **********
+// GET ORDER DATES
+// **********
+
+$scope.getDates = function(){
+  $http({
+    method: 'GET',
+    url: '/dates',
+  }).then(
+    function(response){
+      $scope.dates = response.data;
+      console.log("Dates scope: ", $scope.dates);
+    }
+  );
+}
+
+$scope.getDates();
+
 
 }]);

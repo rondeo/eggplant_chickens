@@ -7,6 +7,14 @@
         ng-options="date as date.date for date in dates">
       <option value="">Select Date</option>
 </select>
+<p>Status: </p>
+<button>Activate</button>
+<button>Deactivate</button>
+<button>Delete</button>
+
+<h4>Create New Order Date</h4>
+<input ng-model="createDateData" type="date">
+<button ng-click="createOrderDate();">Create Date</button>
 
 <table>
   <tr>
