@@ -3,15 +3,17 @@ var app = express();
 var bodyParser = require('body-parser');
 
 //Routes
-var index = require('./routes/index.js');
-var chickform = require('./routes/chickform.js');
+var index = require('./routes/index');
+var orders = require('./routes/orders');
+var dates = require('./routes/dates');
 
 app.set("port", (process.env.PORT || 5000));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({expanded: true}));
 
-app.use("/chickform", chickform);
+app.use("/dates", dates);
+app.use("/orders", orders);
 app.use("/", index);
 
 app.listen(app.get("port"), function() {

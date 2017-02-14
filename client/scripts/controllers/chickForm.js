@@ -36,7 +36,7 @@ mainApp.controller('ChickFormController', ['$scope', '$http', function($scope, $
     $scope.loadQueryData();
     $http({
       method: 'POST',
-      url: '/chickform',
+      url: '/orders',
       data: $scope.querydata
     })
   }
