@@ -1,6 +1,8 @@
 mainApp.controller('AdminController', ['$scope', '$http', function($scope, $http){
   console.log("AdminController firing!");
 
+  $scope.dates;
+
 
 
   // **********
@@ -13,10 +15,20 @@ mainApp.controller('AdminController', ['$scope', '$http', function($scope, $http
       url: '/dates',
     }).then(
       function(response){
-        console.log("The response: ", response);
+        $scope.dates = response.data;
+        console.log("Dates scope: ", $scope.dates);
+        $scope.transformDate();
       }
     );
   }
+
+  // **********
+  // TRANSFORM DATE DATA
+  // **********
+  $scope.transformDate = function(){
+
+  }
+
 
   // ***********
   // GET ORDERS FOR DATE

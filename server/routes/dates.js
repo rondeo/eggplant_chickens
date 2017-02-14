@@ -8,7 +8,7 @@ var connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/ch
 router.get('/', function(req,res){
   results = [];
   pg.connect(connectionString, function(err, client){
-    var query = client.query("SELECT * FROM dates WHERE active = true");
+    var query = client.query("SELECT date FROM dates WHERE active = true");
 
     query.on('row', function(row){
       results.push(row);

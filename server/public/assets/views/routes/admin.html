@@ -1,7 +1,12 @@
+<div>
+
 <h2>Chick Orders Admin</h2>
 
 <h4>Select Order Date</h4>
-<select></select>
+<select ng-model="dates"
+        ng-options="date as date.date for date in dates">
+      <option value="">Select Date</option>
+</select>
 
 <table>
   <tr>
@@ -23,3 +28,4 @@
     <th>Delete</th>
   </tr>
 </table>
+</div>
