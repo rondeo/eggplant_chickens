@@ -44,6 +44,23 @@ router.post('/', function(req, res){
   });
 });
 
+// *********
+// DELETING A DATE
+// *********
+router.delete('/', function(req,res){
+  console.log("The req.query: ", req.query);
+  pg.connect(connectionString, function(err, client){
+    client.query("DELETE FROM dates WHERE id = $1", [req.query.id],
+    function(err, response){
+      if(err) {
+        console.log("Error in delete process: ", err);
+      } else {
+        client.end();
+        res.send(response);
+      }
+    });
+  });
+});
 
 
 

@@ -41,16 +41,16 @@ mainApp.controller('AdminController', ['$scope', '$http', function($scope, $http
   // DELETE ORDER DATE
   // *********
   $scope.deleteOrderDate = function(){
-    console.log("The $scope.dates: ", $scope.dates);
-    // $http({
-    //   method: 'DELETE',
-    //   url: '/dates',
-    //   data: $scope.date
-    // }).then(
-    //   function(response){
-    //     console.log("The response: ", response);
-    //   }
-    // )
+    console.log("Delete value? : ", $scope.dates.model);
+    $http({
+      method: 'DELETE',
+      url: '/dates',
+      params: {id: $scope.dates.model}
+    }).then(
+      function(response){
+        console.log("The response: ", response);
+      }
+    )
   }
 
 
