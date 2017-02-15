@@ -1,9 +1,10 @@
 mainApp.controller('AdminController', ['$scope', '$http', function($scope, $http){
 
+  // **********
+  // INITIALIZE VARIABLES
+  // **********
   $scope.dates;
   $scope.createDateData;
-
-
 
   // **********
   // GET ORDER DATES
@@ -14,30 +15,47 @@ mainApp.controller('AdminController', ['$scope', '$http', function($scope, $http
       url: '/dates',
     }).then(
       function(response){
-        $scope.dates = response.data;
-        console.log("Dates scope: ", $scope.dates);
-      }
-    );
+        console.log("The response data: ", response.data);
+        $scope.dates = {
+          model: null,
+          availableOptions: response.data
+        };
+      });
   }
 
   // *********
   // CREATE ORDER DATE
   // *********
   $scope.createOrderDate = function(){
-    console.log("The data being sent up: ", $scope.createDateData);
     $http({
       method: 'POST',
       url: '/dates',
       data: {date: $scope.createDateData}
     }).then(
       function(response){
-        console.log("The response: ", response);
-      }
-    )
+        $scope.getDates();
+    })
   }
 
+  // *********
+  // DELETE ORDER DATE
+  // *********
+  $scope.deleteOrderDate = function(){
+    console.log("The $scope.dates: ", $scope.dates);
+    // $http({
+    //   method: 'DELETE',
+    //   url: '/dates',
+    //   data: $scope.date
+    // }).then(
+    //   function(response){
+    //     console.log("The response: ", response);
+    //   }
+    // )
+  }
+
+
   // ***********
-  // GET ORDERS FOR DATE
+  // GET ORDERS
   // ***********
 
   $scope.getOrders = function(){
@@ -47,6 +65,8 @@ mainApp.controller('AdminController', ['$scope', '$http', function($scope, $http
       data: $scope.getOrderData
     })
   }
+
+
 
   // **********
   // EDIT ORDER
@@ -74,17 +94,7 @@ mainApp.controller('AdminController', ['$scope', '$http', function($scope, $http
 
 
 
-  // *********
-  // DELETE ORDER DATE
-  // *********
 
-  $scope.deleteOrderDate = function(){
-    $http({
-      method: 'DELETE',
-      url: '/dates',
-      data: $scope.deleteOrderData
-    })
-  }
 
   // *********
   // ACTIVATE ORDER DATE

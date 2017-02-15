@@ -3,14 +3,16 @@
 <h2>Chick Orders Admin</h2>
 
 <h4>Select Order Date</h4>
-<select ng-model="dates"
-        ng-options="date as date.date for date in dates">
-      <option value="">Select Date</option>
+<select name="dateSelect" id="dateSelect" ng-model="dates.model">
+  <option ng-repeat="date in dates.availableOptions" value="{{date.id}}">{{date.date}}</option>
+</select>
+
+
 </select>
 <p>Status: </p>
 <button>Activate</button>
 <button>Deactivate</button>
-<button>Delete</button>
+<button ng-click="deleteOrderDate();">Delete</button>
 
 <h4>Create New Order Date</h4>
 <input ng-model="createDateData" type="date">
