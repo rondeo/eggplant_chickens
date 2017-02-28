@@ -24,19 +24,12 @@ h1, h2, h3, h4, h5, h6, p, a, label {
   width: 1500px;
   margin: 0;
 }
-
-/*.form-item label, .form-item input, .form-item p{
-  display: inline-block;
-  padding: 5px;
-  margin: 5px;
-}*/
-
 .chick-total p{
   display: inline-block;
 }
 
 footer {
-  background-color: #000000;
+  background-color: #333;
   clear: left;
 }
 

@@ -92,10 +92,6 @@ mainApp.controller('AdminController', ['$scope', '$http', function($scope, $http
     })
   }
 
-
-
-
-
   // *********
   // ACTIVATE ORDER DATE
   // *********
