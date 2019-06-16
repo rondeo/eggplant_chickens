@@ -18,15 +18,19 @@
     "bluebird": "^3.4.1",
     "body-parser": "^1.16.0",
     "bootstrap": "^3.3.6",
+    "brace-expansion": "^1.1.11",
     "express": "^4.17.1",
     "express-session": "^1.14.0",
     "grunt": "^1.0.1",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-uglify": "^1.0.2",
+    "js-yaml": "^3.13.1",
+    "lodash": "^4.17.11",
     "npm": "^6.9.0",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "path": "^0.12.7",
-    "pg": "^6.1.2"
+    "pg": "^6.4.2",
+    "underscore.string": "^3.3.5"
   }
 }
